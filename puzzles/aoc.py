@@ -1,6 +1,6 @@
-import datetime
 import inspect
 import os
+import time
 import sys
 
 
@@ -75,14 +75,14 @@ class Puzzle:
         
         print('Input...  ', end=line_endings)
         
-        start = datetime.datetime.now()
+        start = time.time()
         try:
             input_data = self.get_input()
         except FileNotFoundError:
             print(f'No input data file found (looked in {self.get_input_file_name()}).')
             return
         
-        t = (datetime.datetime.now() - start).total_seconds()
+        t = time.time() - start
         
         if self.input_delimiter == '\n':
             input_desc = f'has {len(input_data)} lines'
@@ -95,7 +95,7 @@ class Puzzle:
         if max_v:
             print('Input ', end='')
         
-        print(f'{input_desc} ({type(input_data)}) [{t}s]')
+        print(f'{input_desc} ({type(input_data)}) [{t:.6f}s]')
         
         # Run solvers
         for part, solver in solvers:
@@ -109,16 +109,16 @@ class Puzzle:
             if max_v:
                 print('\nSolving ', end='')
             
-            print('Part {}... '.format(part), end=line_endings)
+            print(f'Part {part}... ', end=line_endings)
             
-            start = datetime.datetime.now()
+            start = time.time()
             solution = solver(part_input_data)
-            t = (datetime.datetime.now() - start).total_seconds()
+            t = time.time() - start
             
             if max_v:
                 print('Solution: ', end='')
             
-            print('{} [{}s]'.format(solution, t))
+            print(f'{solution} [{t:.6f}s]')
         
         if max_v:
             print('\n', '=' * 50, sep='')
