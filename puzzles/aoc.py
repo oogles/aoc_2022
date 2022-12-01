@@ -50,12 +50,12 @@ class Puzzle:
                     if line:
                         input_data.append(process_item(line))
             else:
-                raw_input = f.read().strip()  # trim whitespace (e.g. newlines)
+                input_data = f.read().strip()  # trim whitespace (e.g. newlines)
                 
                 if delimiter:
                     # Trim whitespace from and process each item in the raw
                     # input data after applying the configured delimiter
-                    input_data = [process_item(item.strip()) for item in raw_input.split(delimiter)]
+                    input_data = [process_item(item.strip()) for item in input_data.split(delimiter)]
                 
                 # Apply any overall processing of the input data
                 input_data = self.process_input_data(input_data)
