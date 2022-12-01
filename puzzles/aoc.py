@@ -56,9 +56,9 @@ class Puzzle:
                     # Trim whitespace from and process each item in the raw
                     # input data after applying the configured delimiter
                     input_data = [process_item(item.strip()) for item in raw_input.split(delimiter)]
-                else:
-                    # Process the raw input data directly
-                    input_data = self.process_input_data(raw_input)
+                
+                # Apply any overall processing of the input data
+                input_data = self.process_input_data(input_data)
         
         return input_data
     
