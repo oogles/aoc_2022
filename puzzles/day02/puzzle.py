@@ -65,14 +65,14 @@ class P(Puzzle):
         # achieve the given result - rock, paper, or scissors
         outcomes_map = {
             ('A', 'loss'): 'C',  # rock vs scissors (scissors loses)
-            ('A', 'draw'): 'A',   # rock vs rock
-            ('A', 'win'): 'B',  # rock vs paper (paper wins)
+            ('A', 'draw'): 'A',  # rock vs rock
+            ('A', 'win'): 'B',   # rock vs paper (paper wins)
             ('B', 'loss'): 'A',  # paper vs rock (rock loses)
             ('B', 'draw'): 'B',  # paper vs paper
             ('B', 'win'): 'C',   # paper vs scissors (scissors wins)
-            ('C', 'loss'): 'B',   # scissors vs paper (paper loses)
+            ('C', 'loss'): 'B',  # scissors vs paper (paper loses)
             ('C', 'draw'): 'C',  # scissors vs scissors
-            ('C', 'win'): 'A'   # scissors vs rock (rock wins)
+            ('C', 'win'): 'A'    # scissors vs rock (rock wins)
         }
         
         return calculate_points(input_data, col2_map, outcomes_map)
