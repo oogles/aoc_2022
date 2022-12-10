@@ -55,9 +55,6 @@ class P(Puzzle):
         
         crates, moves = input_data
         
-        # Make a deep copy of `crates` to avoid affecting part 2
-        crates = deepcopy(crates)
-        
         # Move crates one-by-one from/to the designated stacks
         for num, from_stack, to_stack in moves:
             for i in range(num):
